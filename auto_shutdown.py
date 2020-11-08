@@ -1,4 +1,4 @@
-import os, time
+import os, time, datetime
 from System import *
 
 
@@ -46,6 +46,11 @@ text = Text(screen, ps_width(58), ps_height(30), '5 мин. 00 сек.', font, B
 timer = time.time()
 time_disconnection = 300
 clock = pygame.time.Clock()
+
+
+now = datetime.datetime.now()
+if now.hour >= 9 and now.hour <= 23:
+    running = False
 
 while running:
     clock.tick(FPS)  # поддержка фпс
